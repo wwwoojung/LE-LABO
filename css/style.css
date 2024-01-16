@@ -1,0 +1,231 @@
+:root {
+    --background-color: #F6F8F6;
+    --white-color: #ffffff;
+    --black-color: #202123;
+    --line: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
+#Header {
+    height: 100px;
+}
+
+#Header .header_wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--background-color);
+}
+
+#Header .logo_area {
+    order: 2;
+
+    display: flex;
+    justify-content: space-between;
+
+    padding: 0 calc((100% - 1200px)/2 + 15px);
+    border-top: var(--line);
+
+    line-height: 90px;
+}
+
+#Header .logo_area img {
+    width: 150px;
+}
+
+#Header .logo_area .gnb>ul {
+    display: flex;
+    gap: 40px;
+}
+
+#Header .logo_area .gnb>ul>li>a {
+    display: block;
+
+    font-size: 18px;
+    font-weight: 500;
+}
+
+#Header .util_area {
+    display: flex;
+    gap: 15px;
+    justify-content: right;
+    padding: 0 calc((100% - 1200px)/2 + 15px);
+}
+
+#Header .util_area a {
+    display: block;
+
+    font-size: 12px;
+    line-height: 30px;
+}
+
+#Header .util_area .icon {
+    font-size: 22px;
+    font-weight: 300;
+
+    vertical-align: -6px;
+}
+
+
+
+
+
+.MainVisual .visual_slide .itm {
+    height: calc(100vh - 100px);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.MainVisual .visual_slide .itm01 {
+    background-image: url(../images/main_slide01.jpg);
+}
+
+.MainVisual .visual_slide .itm02 {
+    background-image: url(../images/main_slide02.jpg);
+}
+
+.MainVisual .visual_slide .itm03 {
+    background-image: url(../images/main_slide03.jpg);
+}
+
+.MainVisual .visual_slide .itm .visual_slide_vid {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+
+
+
+
+
+.MainCompany {
+    background: var(--background-color);
+}
+
+.MainCompany .title {
+    padding: 0 0;
+}
+
+.MainCompany .title strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+}
+
+.MainCompany .title h2 {
+    margin: 0 0 0 0;
+}
+
+.MainCompany .company_con {
+    display: flex;
+    gap: 30px;
+}
+
+.MainCompany .company_con>* {
+    flex: 1 1 0;
+}
+
+.MainCompany .company_con .left {
+    position: relative;
+    padding: 48px 0;
+}
+
+.MainCompany .company_con .left::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 64px;
+    height: 1px;
+
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.MainCompany .company_con .left p {
+    font-size: 14px;
+    line-height: 22px;
+    margin: 0 0 12px 0;
+}
+
+.MainCompany .company_con .left span {
+    display: block;
+    font-weight: 600;
+    margin: 0 0 40px 0;
+}
+
+.MainCompany .company_con .right {
+    background: url(../images/main_company_img.jpeg) no-repeat center center/cover;
+}
+
+
+
+
+
+
+
+
+
+.MainCollection {
+    position: relative;
+    background: var(--background-color);
+}
+
+.MainCollection::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(0, -50%);
+
+    width: 1px;
+    height: 80px;
+
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.MainCollection .title {
+    text-align: center;
+}
+
+.MainCollection .collection_con {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.MainCollection .collection_con>* {
+    flex: 1 0 30%;
+    text-align: center;
+}
+
+.MainCollection .collection_con .content figure {
+    margin: 0 0 16px 0;
+}
+
+.MainCollection .collection_con .content strong {
+    display: block;
+    margin: 0 0 16px 0;
+    font-weight: 600;
+}
+
+
+
+
+
+
+
+.MainLab {
+    background: var(--background-color);
+}
