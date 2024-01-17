@@ -17,8 +17,9 @@
 }
 
 .default .title h2 {
+    font-family: 'Noto Serif', serif;
     font-size: 36px;
-    font-weight: 600;
+    font-weight: 700;
     margin: 0 0 8px 0;
     line-height: 36px;
 }
