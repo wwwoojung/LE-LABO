@@ -29,13 +29,12 @@
 
 #Header .logo_area {
     order: 2;
+    border-top: var(--line);
+}
 
+#Header .logo_area .inner {
     display: flex;
     justify-content: space-between;
-
-    padding: 0 calc((100% - 1200px)/2 + 15px);
-    border-top: var(--line);
-
     line-height: 90px;
 }
 
@@ -53,13 +52,14 @@
 
     font-size: 18px;
     font-weight: 500;
+
+    white-space: nowrap;
 }
 
-#Header .util_area {
+#Header .util_area .inner {
     display: flex;
     gap: 15px;
     justify-content: right;
-    padding: 0 calc((100% - 1200px)/2 + 15px);
 }
 
 #Header .util_area a {
@@ -97,11 +97,11 @@
 }
 
 .MainVisual .visual_slide .itm02 {
-    background-image: url(../images/main_slide02.jpg);
+    background-image: url(../images/main_slide03.jpg);
 }
 
 .MainVisual .visual_slide .itm03 {
-    background-image: url(../images/main_slide03.jpg);
+    background-image: url(../images/main_slide02.jpg);
 }
 
 .MainVisual .visual_slide .itm .visual_slide_vid {
@@ -240,17 +240,49 @@
     font-size: 14px;
     line-height: 22px;
     margin: 0 0 12px 0;
+    word-break: keep-all;
 }
 
 .MainCompany .company_con .left span {
     display: block;
     font-weight: 700;
     margin: 0 0 40px 0;
+    word-break: keep-all;
 }
 
 .MainCompany .company_con .right {
     background: url(../images/main_company_img.jpeg) no-repeat center center/cover;
 }
+
+@media(max-width:768px) {
+    .MainCompany .company_con .left {
+        text-align: center;
+    }
+
+    .MainCompany .company_con .left::before {
+        display: none;
+    }
+
+    .MainCompany .company_con .left .title {
+        text-align: center;
+    }
+
+    .MainCompany .company_con .right {
+        display: none;
+    }
+
+    .MainCompany .company_con .left p br:nth-of-type(2) {
+        display: none;
+    }
+}
+
+@media(max-width:355px) {
+    .MainCompany .company_con .left span {
+        line-height: 20px;
+    }
+}
+
+
 
 
 
@@ -289,7 +321,7 @@
 }
 
 .MainCollection .collection_con>* {
-    flex: 1 0 30%;
+    flex: 1 0 31%;
     text-align: center;
 }
 
@@ -302,6 +334,15 @@
     margin: 0 0 24px 0;
     font-weight: 600;
 }
+
+@media(max-width:845px) {
+    .MainCollection .title p {
+        line-height: 20px;
+    }
+}
+
+
+
 
 
 
@@ -386,8 +427,6 @@
     background: rgba(0, 0, 0, 0.2);
 }
 
-
-
 .MainLab .content .text_box {
     padding: 64px 0;
 }
@@ -409,7 +448,99 @@
 .MainLab .content .text_box p {
     font-size: 14px;
     line-height: 18px;
+    word-break: keep-all;
 }
+
+@media(max-width:1200px) {
+    .MainLab {
+        overflow: visible;
+    }
+
+    .MainLab::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(0, -50%);
+        z-index: 1;
+
+        width: 1px;
+        height: 64px;
+
+        background: rgba(0, 0, 0, 0.2);
+        opacity: 1;
+    }
+
+    .MainLab::after {
+        display: none;
+    }
+
+    .MainLab .title {
+        text-align: center;
+    }
+
+    .MainLab .lab_con {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px 30px;
+    }
+
+    .MainLab .content {
+        flex: 1 0 47%;
+
+        flex-direction: column;
+        gap: 24px;
+
+        margin: 0 0 0 0;
+    }
+
+    .MainLab .content>* {
+        flex: 1;
+    }
+
+    .MainLab .content figure {
+        position: relative;
+    }
+
+    .MainLab .content:nth-of-type(2) figure,
+    .MainLab .content:nth-of-type(4) figure {
+        order: 1;
+    }
+
+    .MainLab .content:nth-of-type(2) .text_box,
+    .MainLab .content:nth-of-type(4) .text_box {
+        order: 2;
+    }
+
+    .MainLab .content:nth-of-type(1) figure::after,
+    .MainLab .content:nth-of-type(3) figure::after {
+        display: none;
+    }
+
+    .MainLab .content:nth-of-type(2) figure::after,
+    .MainLab .content:nth-of-type(4) figure::after {
+        display: none;
+    }
+
+    .MainLab .content .text_box {
+        padding: 0 16px;
+    }
+
+    .MainLab .content:nth-of-type(2) .text_box,
+    .MainLab .content:nth-of-type(4) .text_box {
+        padding: 0 16px 0 16px;
+    }
+
+    .MainLab .content .text_box strong {
+        margin: 0 0 14px 0;
+    }
+}
+
+
+
+
+
+
 
 
 
@@ -472,5 +603,26 @@
 #Footer .footer_bottom .info>ul>li {
     font-size: 12px;
     font-weight: 200;
-    line-height: 20px;
+    margin: 0 0 8px 0;
+
+    word-break: keep-all;
+}
+
+@media(max-width:768px) {
+    #Footer .footer_top {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    #Footer .footer_top .site_map {
+        flex-wrap: wrap;
+        gap: 30px;
+        white-space: nowrap;
+    }
+}
+
+@media(max-width:578px) {
+    #Footer .footer_bottom .info>ul>li {
+        line-height: 16px;
+    }
 }

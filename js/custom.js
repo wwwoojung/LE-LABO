@@ -8,8 +8,7 @@ $(function () {
         on: {
             slideChange: function () {
                 const index_currentSlide = this.realIndex;
-                const currentSlide = this.slides[index_currentSlide]
-                console.log(index_currentSlide);
+                // console.log(index_currentSlide);
                 if (index_currentSlide == 3) {
                     $('.visual_slide_vid').trigger('play')
                 } else {
@@ -28,8 +27,7 @@ $(function () {
 
     $('.MainVisual .slide_nav .text_box').on('click', function () {
         const IDX = $(this).index();
-        console.log(IDX);
-        VISUAL_SLIDE.slideTo(IDX, 200);
+        VISUAL_SLIDE.slideToLoop(IDX);
     })
 
     $(window).on('scroll', function () {
