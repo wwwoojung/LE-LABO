@@ -628,10 +628,10 @@
     content: "";
     position: absolute;
     top: 850px;
-    right: calc((100% - 1200px)/2 + 70px);
+    right: calc((100% - 1200px)/2 + 75px);
 
     width: 1px;
-    height: 800px;
+    height: 820px;
 
     background: rgba(0, 0, 0, 0.05);
 }
@@ -888,13 +888,24 @@
 
 
 #SubPage .sub_head {
+    position: relative;
     min-height: 400px;
-    background: url(../images/sub_page04_bg.jpg) no-repeat center center/cover;
+    /* background: url(../images/sub_page04_bg.jpg) no-repeat center center/cover; */
     display: flex;
     align-items: center;
 }
 
+#SubPage .sub_head::after {
+    content: "";
+    position: absolute;
+    inset: 0 0 0 0;
+
+    background: rgba(0, 0, 0, 0.2);
+}
+
 #SubPage .sub_head strong {
+    position: relative;
+    z-index: 1;
     display: block;
 
     max-width: 1200px;
@@ -906,18 +917,198 @@
     font-family: 'Noto Serif', serif;
     font-size: 40px;
     color: var(--white-color);
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 }
 
-#SubPage .sub_content .title {
+#SubPage .sub_pagination {
+    padding: 16px 0;
+    background-color: var(--background-color);
+    border-bottom: var(--line);
+}
+
+#SubPage .sub_pagination .inner {
+    text-align: right;
+}
+
+#SubPage .sub_pagination strong {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#SubPage .sub_pagination span::before {
+    content: "\e5cb";
+    font-size: 26px;
+    font-weight: 200;
+    font-family: "Material Symbols Outlined";
+    display: inline-block;
+    margin: 0 8px;
+
+    vertical-align: -7px;
+}
+
+#SubPage .sub_content .sub_nav {
+    flex: 1;
+
+    position: sticky;
+    top: 90px;
+}
+
+#SubPage .sub_content .sub_nav>ul>li {
+    padding: 0 16px;
+    border-bottom: var(--line);
+}
+
+#SubPage .sub_content .sub_nav>ul>li>a {
+    position: relative;
+    display: block;
+    line-height: 48px;
+}
+
+#SubPage .sub_content .sub_nav>ul>li>a::after {
+    content: "\e5cc";
+    font-family: "Material Symbols Outlined";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#SubPage .sub_content .sub_nav>ul>li.on {
+    background: var(--black-color);
+    color: var(--background-color);
+}
+
+
+
+
+
+
+#SubPage .sub_content {
+    background-color: var(--background-color);
+}
+
+#SubPage .sub_content .content {
+    display: flex;
+    align-items: flex-start;
+
+    border-right: var(--line);
+    border-left: var(--line);
+}
+
+#SubPage .sub_content .sub_product {
+    flex: 5;
+    order: 2;
+    padding: 100px 24px;
+
+    border-left: var(--line);
+}
+
+#SubPage .sub_content .sub_product .title {
+    padding: 0 0;
     text-align: center;
-
 }
 
-#SubPage .sub_content .title h2 {
+#SubPage .sub_content .sub_product .title h2 {
     font-family: "Pretendard Variable";
-
 }
 
-#SubPage .sub_content .title p {
+#SubPage .sub_content .sub_product .title p {
     line-height: 20px;
+}
+
+#SubPage .sub_content .product_box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px 15px;
+}
+
+#SubPage .sub_content .product_box .itm {
+    position: relative;
+    border: var(--line);
+}
+
+#SubPage .sub_content .product_box .itm .text_box {
+    padding: 24px 16px;
+}
+
+#SubPage .sub_content .product_box .itm strong {
+    display: block;
+    margin: 0 0 4px 0;
+
+    font-size: 18px;
+    font-weight: 500;
+}
+
+#SubPage .sub_content .product_box .itm span {
+    display: block;
+}
+
+#SubPage .sub_content .product_box .itm .size {
+    font-size: 14px;
+    font-weight: 300;
+    margin: 0 0 12px 0;
+}
+
+#SubPage .sub_content .product_box .itm .price {
+    font-weight: 500;
+}
+
+#SubPage .sub_content .product_box .itm a {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--white-color);
+    border-radius: 4px;
+}
+
+#SubPage .sub_content .product_box .itm a .icon {
+    font-size: 24px;
+    font-weight: 300;
+}
+
+
+#SubPage .sub_content .category_box {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+#SubPage .sub_content .category_box .cate a {
+    position: relative;
+}
+
+#SubPage .sub_content .category_box .text_box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 15px;
+
+    text-align: center;
+}
+
+#SubPage .sub_content .category_box .text_box strong {
+    font-family: "Noto Serif", serif;
+    display: block;
+    margin: 0 0 8px 0;
+
+    color: var(--white-color);
+    font-size: 28px;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+}
+
+#SubPage .sub_content .category_box .text_box span {
+    display: block;
+    color: var(--white-color);
+    font-size: 28px;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 1);
 }
