@@ -5,9 +5,12 @@
     --line: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.wrap {
+    min-width: 320px;
+}
 
 #Header {
-    height: 100px;
+    height: 120px;
 }
 
 #Header .header_wrap {
@@ -30,6 +33,11 @@
 #Header .logo_area {
     order: 2;
     border-top: var(--line);
+}
+
+#Header .logo_area h1 {
+    position: relative;
+    z-index: 999;
 }
 
 #Header .logo_area .inner {
@@ -81,12 +89,146 @@
     overflow: hidden;
 }
 
+.m_open {
+    position: fixed;
+    top: 25px;
+    right: 15px;
+    z-index: 999;
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    background: var(--background-color);
+    border: var(--line);
+    cursor: pointer;
+
+    display: none;
+}
+
+@media(max-width:1200px) {
+
+    /* r */
+    #Header {
+        height: 90px;
+    }
+
+    /* r */
+    #Header.on .header_wrap::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+
+        height: 100vh;
+
+        background: rgba(0, 0, 0, 0.9);
+    }
+
+    /* r */
+    #Header .logo_area .gnb {
+        position: fixed;
+        top: 0;
+        left: -100%;
+
+        width: calc(100% - 90px);
+        height: 100vh;
+
+        background: var(--background-color);
+        border-right: var(--line);
+
+        padding: 120px 24px;
+        transition: left 0.5s;
+    }
+
+    /* r */
+    #Header.on .logo_area .gnb {
+        left: 0;
+    }
+
+    #Header .logo_area .gnb>ul {
+        display: flex;
+
+        /* r */
+        flex-direction: column;
+        gap: 0;
+    }
+
+    #Header .logo_area .gnb>ul>li>a {
+        display: block;
+
+        font-size: 18px;
+        font-weight: 500;
+
+        white-space: nowrap;
+
+        /* r */
+        line-height: 60px;
+        border-bottom: var(--line);
+    }
+
+    /* r */
+    #Header .util_area {
+        position: fixed;
+        bottom: 24px;
+        left: -100%;
+
+        width: calc(100% - 90px);
+        transition: left 0.5s;
+    }
+
+    /* r */
+    #Header.on .util_area {
+        left: 0;
+    }
+
+    /* r */
+    #Header .util_area .inner {
+        gap: 4px;
+    }
+
+    #Header .util_area a {
+        display: block;
+
+        font-size: 12px;
+        line-height: 30px;
+
+        /* r */
+        font-size: 0;
+        border: var(--line);
+    }
+
+    /* r */
+    #Header .util_area .icon {
+        font-size: 32px;
+        padding: 8px;
+    }
+
+    /* r */
+    #Header .header_wrap.on .util_area {
+        height: auto;
+        overflow: visible;
+    }
+
+    /* r */
+    .m_open {
+        display: block;
+    }
+}
+
+
+
+
+
+
+
 
 
 
 
 .MainVisual .visual_slide .itm {
-    height: calc(100vh - 100px);
+    height: calc(100vh - 120px);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -119,7 +261,6 @@
 
     background: rgba(0, 0, 0, 0.2);
 }
-
 
 .MainVisual .slide_nav .nav_con {
     display: flex;
@@ -185,7 +326,121 @@
 .MainVisual .slide_nav .text_box p {
     font-size: 14px;
     font-weight: 300;
+    word-break: keep-all;
 }
+
+.MainVisual .slide_nav .nav_arrows {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    max-width: 700px;
+    width: 100%;
+    padding: 0 15px;
+
+    display: none;
+}
+
+.MainVisual .slide_nav .nav_arrows .left {
+    position: absolute;
+    left: 0;
+    transform: translate(0, -50%);
+    cursor: pointer;
+}
+
+.MainVisual .slide_nav .nav_arrows .right {
+    position: absolute;
+    right: 0;
+    transform: translate(0, -50%);
+    cursor: pointer;
+}
+
+.MainVisual .slide_nav .nav_arrows .icon {
+    font-size: 64px;
+    font-weight: 200;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.MainVisual .slide_nav .nav_arrows .icon:hover {
+    color: var(--white-color);
+}
+
+@media(max-width:1200px) {
+    .MainVisual .visual_slide .itm {
+        height: calc(100vh - 90px);
+    }
+
+    .MainVisual .slide_nav .nav_con {
+        gap: 30px;
+    }
+
+    .MainVisual .slide_nav .text_box .more_btn {
+        padding: 16px 32px;
+    }
+
+    .MainVisual .slide_nav .text_box span {
+        font-size: 16px;
+    }
+
+    .MainVisual .slide_nav .text_box strong {
+        font-size: 16px;
+    }
+
+    .MainVisual .slide_nav .text_box p {
+        font-size: 12px;
+        line-height: 16px;
+    }
+}
+
+@media(max-width:768px) {
+    .MainVisual .visual_slide .itm {
+        height: 70vh;
+    }
+
+    .MainVisual .slide_nav {
+        bottom: 20.5vh;
+    }
+
+    .MainVisual .slide_nav .text_box {
+        display: none;
+        text-align: center;
+    }
+
+    .MainVisual .slide_nav .text_box.on {
+        display: block;
+    }
+
+    .MainVisual .slide_nav .text_box .more_btn {
+        padding: 16px 40px;
+
+    }
+
+    .MainVisual .slide_nav .text_box span {
+        font-size: 20px;
+    }
+
+    .MainVisual .slide_nav .text_box strong {
+        font-size: 20px;
+    }
+
+    .MainVisual .slide_nav .text_box p {
+        font-size: 14px;
+    }
+
+    .MainVisual .slide_nav .nav_arrows {
+        display: block;
+    }
+}
+
+@media(max-width:500px) {
+    .MainVisual .slide_nav .nav_arrows {
+        display: none;
+    }
+}
+
+
+
 
 
 
@@ -567,14 +822,15 @@
 }
 
 #Footer .footer_top .site_map dt {
+    font-size: 14px;
     font-weight: 300;
-    margin: 0 0 14px 0;
+    margin: 0 0 12px 0;
 }
 
 #Footer .footer_top .site_map dd {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 200;
-    line-height: 18px;
+    line-height: 20px;
 }
 
 #Footer .footer_top .sns {
@@ -625,4 +881,43 @@
     #Footer .footer_bottom .info>ul>li {
         line-height: 16px;
     }
+}
+
+
+
+
+
+#SubPage .sub_head {
+    min-height: 400px;
+    background: url(../images/sub_page04_bg.jpg) no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+}
+
+#SubPage .sub_head strong {
+    display: block;
+
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    padding: 0 15px;
+
+    text-align: center;
+    font-family: 'Noto Serif', serif;
+    font-size: 40px;
+    color: var(--white-color);
+}
+
+#SubPage .sub_content .title {
+    text-align: center;
+
+}
+
+#SubPage .sub_content .title h2 {
+    font-family: "Pretendard Variable";
+
+}
+
+#SubPage .sub_content .title p {
+    line-height: 20px;
 }
